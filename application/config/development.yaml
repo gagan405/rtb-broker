@@ -1,0 +1,64 @@
+server:
+  applicationConnectors:
+  - type: http
+    port: 8080
+    acceptorThreads: 1
+    outputBufferSize: 32KB
+    inputBufferSize: 8KB
+    maxRequestHeaderSize: 8KB
+    maxResponseHeaderSize: 8KB
+    reuseAddress: true
+    soLingerTime: null
+    useServerHeader: false
+    useDateHeader: true
+    useForwardedHeaders: true
+    bindHost: null
+  adminConnectors:
+  - type: http
+    port: 10000
+  minThreads: 8
+  maxThreads: 1024
+  idleThreadTimeout: 200s
+  shutdownGracePeriod: 5s
+  gzip:
+    enabled: true
+    minimumEntitySize: 256 bytes
+    bufferSize: 8KiB
+    excludedUserAgents: []
+    compressedMimeTypes: []
+  requestLog:
+    timeZone: IST
+    appenders:
+    - type: file
+      logFormat: "%-5p [%d{ISO8601}] [%X{reqId} %X{txnId}] %c{1.}: %m\n%ex"
+      currentLogFilename: ./requests.log
+      archive: true
+      archivedLogFilenamePattern: ./requests-%d.log.gz
+      archivedFileCount: 5
+    - type: console
+      logFormat: "%-5p [%d{ISO8601}] [%X{reqId} %X{txnId}] %c{1.}: %m\n%ex"
+
+logging:
+  level: INFO
+  loggers:
+    org.hibernate.ejb.HibernatePersistence: ERROR
+  appenders:
+  - type: file
+    threshold: ALL
+    timeZone: IST
+    logFormat: "%-5p [%d{ISO8601}] [%thread] [%X{reqId} %X{txnId} %X{dbConnectionId}] %c: %m\n%ex"
+    currentLogFilename: ./app.log
+    archive: true
+    archivedLogFilenamePattern: ./app-%d{yyyy-MM-dd-HH}.log.gz
+    archivedFileCount: 100
+  - type: console
+    threshold: ALL
+    logFormat: "%-5p [%d{ISO8601}] [%X{reqId} %X{txnId} %X{dbConnectionId}] %replace(%c: %m){'\n', '\n '}%n%replace(%ex){'(?m)^(.)',' $1'}%nopex"
+
+biddingConfiguration:
+  biddingTimeoutInMillis: 100
+  bidderUrls:
+    - http://localhost:8081
+    - http://localhost:8082
+    - http://localhost:8083
+

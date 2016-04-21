@@ -1,0 +1,8 @@
+project(":application") {
+
+    task(runService, dependsOn: 'classes', type: JavaExec) {
+        main = mainClassName
+        classpath = sourceSets.main.runtimeClasspath
+        args 'server', configFile
+    }
+}

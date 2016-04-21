@@ -1,0 +1,52 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+allprojects {
+    apply plugin: 'idea'
+    group = 'com.yieldlabs.rtb-broker'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'groovy'
+
+    targetCompatibility = '1.8'
+    sourceCompatibility = '1.8'
+    task allDeps(type: DependencyReportTask) {}
+
+    buildscript {
+        repositories {
+            mavenCentral()
+        }
+    }
+
+    dependencies {
+        repositories {
+            mavenCentral()
+        }
+
+
+        compile 'org.eclipse.jetty:jetty-proxy:9.0.7.v20131107'
+        compile 'org.projectlombok:lombok:1.16.8'
+        compile 'org.apache.httpcomponents:httpasyncclient:4.1.1'
+
+        compile 'io.dropwizard:dropwizard-core:' + dropwizardVersion,
+                'io.dropwizard:dropwizard-assets:' + dropwizardVersion,
+                'io.dropwizard:dropwizard-client:' + dropwizardVersion
+
+
+        compile('com.hubspot.dropwizard:dropwizard-guice:' + '0.8.4.0') {
+            exclude group: 'com.google.inject', module: 'guice_servlet'
+            exclude group: 'javassist', module: 'javassist'
+        }
+    }
+
+}
+ext.mainClassName = 'com.yieldlabs.rtb.broker.BrokerApplication'
+ext.configFile = './config/development.yaml'
+
+task createWrapper(type: Wrapper) {
+    gradleVersion = '2.11'
+}
+apply from: file("gradle/dropwizard.gradle")

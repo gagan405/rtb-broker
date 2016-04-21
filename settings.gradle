@@ -1,0 +1,3 @@
+rootProject.name = 'rtb-broker'
+include ':application'
+
