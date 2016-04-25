@@ -41,7 +41,7 @@ subprojects {
             exclude group: 'javassist', module: 'javassist'
         }
 
-        testCompile 'org.junit:junit:4.11'
+        testCompile 'junit:junit:4.11'
     }
 
 }

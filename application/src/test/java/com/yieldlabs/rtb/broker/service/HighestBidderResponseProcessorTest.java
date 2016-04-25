@@ -39,7 +39,7 @@ public class HighestBidderResponseProcessorTest {
     Optional<String> bidResponse = highestBidderResponseProcessor.getAuctionResult(bidResponses);
     Assert.assertTrue(bidResponse.isPresent());
     String result = bidResponse.get();
-    System.out.println(result);
+    Assert.assertEquals("b:150",result);
   }
 
 
@@ -47,22 +47,18 @@ public class HighestBidderResponseProcessorTest {
     List<BidResponse> bidResponses = new ArrayList<>();
     BidResponse bidResponse1 = new BidResponse();
     bidResponse1.setBid(100l);
-    bidResponse1.setContent("a:$PRICE$");
+    bidResponse1.setContent("a:price");
     bidResponse1.setId("1");
-
 
     BidResponse bidResponse2 = new BidResponse();
     bidResponse2.setBid(150l);
-    bidResponse2.setContent("b:$PRICE$");
+    bidResponse2.setContent("b:$price$");
     bidResponse2.setId("2");
-
-
 
     BidResponse bidResponse3 = new BidResponse();
     bidResponse3.setBid(120l);
-    bidResponse3.setContent("c:$PRICE$");
+    bidResponse3.setContent("c:$price$");
     bidResponse3.setId("3");
-
 
     bidResponses.add(bidResponse1);
     bidResponses.add(bidResponse2);
