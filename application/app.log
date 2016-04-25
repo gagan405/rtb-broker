@@ -155,3 +155,29 @@ INFO  [2016-04-25 10:35:59,081] [Thread-13] [  ] org.eclipse.jetty.server.Server
 INFO  [2016-04-25 10:35:59,092] [Thread-13] [  ] org.eclipse.jetty.server.ServerConnector: Stopped admin@5226e402{HTTP/1.1}{0.0.0.0:10000}
 INFO  [2016-04-25 10:35:59,095] [Thread-13] [  ] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@20134094{/,null,UNAVAILABLE}
 INFO  [2016-04-25 10:35:59,097] [Thread-13] [  ] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@f679798{/,null,UNAVAILABLE}
+INFO  [2016-04-25 10:44:43,313] [main] [  ] org.eclipse.jetty.util.log: Logging initialized @2063ms
+INFO  [2016-04-25 10:44:43,428] [main] [  ] com.hubspot.dropwizard.guice.AutoConfig: Added resource class: class com.yieldlabs.rtb.broker.controllers.BidRequestController
+INFO  [2016-04-25 10:44:43,432] [main] [  ] io.dropwizard.server.ServerFactory: Starting BrokerApplication
+INFO  [2016-04-25 10:44:43,443] [main] [  ] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2016-04-25 10:44:43,467] [main] [  ] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2016-04-25 10:44:43,550] [main] [  ] org.eclipse.jetty.setuid.SetUIDListener: Opened application@5486887b{HTTP/1.1}{0.0.0.0:8080}
+INFO  [2016-04-25 10:44:43,550] [main] [  ] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@5226e402{HTTP/1.1}{0.0.0.0:10000}
+INFO  [2016-04-25 10:44:43,554] [main] [  ] org.eclipse.jetty.server.Server: jetty-9.2.13.v20150730
+INFO  [2016-04-25 10:44:44,206] [main] [  ] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    GET     /{id} (com.yieldlabs.rtb.broker.controllers.BidRequestController)
+
+INFO  [2016-04-25 10:44:44,211] [main] [  ] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@f679798{/,null,AVAILABLE}
+INFO  [2016-04-25 10:44:44,219] [main] [  ] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+INFO  [2016-04-25 10:44:44,227] [main] [  ] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@20134094{/,null,AVAILABLE}
+INFO  [2016-04-25 10:44:44,239] [main] [  ] org.eclipse.jetty.server.ServerConnector: Started application@5486887b{HTTP/1.1}{0.0.0.0:8080}
+INFO  [2016-04-25 10:44:44,246] [main] [  ] org.eclipse.jetty.server.ServerConnector: Started admin@5226e402{HTTP/1.1}{0.0.0.0:10000}
+INFO  [2016-04-25 10:44:44,247] [main] [  ] org.eclipse.jetty.server.Server: Started @2999ms
+INFO  [2016-04-25 10:44:57,286] [Thread-13] [  ] org.eclipse.jetty.server.ServerConnector: Stopped application@5486887b{HTTP/1.1}{0.0.0.0:8080}
+INFO  [2016-04-25 10:44:57,288] [Thread-13] [  ] org.eclipse.jetty.server.ServerConnector: Stopped admin@5226e402{HTTP/1.1}{0.0.0.0:10000}
+INFO  [2016-04-25 10:44:57,290] [Thread-13] [  ] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@20134094{/,null,UNAVAILABLE}
+INFO  [2016-04-25 10:44:57,292] [Thread-13] [  ] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@f679798{/,null,UNAVAILABLE}
