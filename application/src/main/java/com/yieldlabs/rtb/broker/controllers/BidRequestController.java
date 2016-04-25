@@ -4,12 +4,10 @@ import com.google.inject.Inject;
 import com.yieldlabs.rtb.broker.dto.BidRequest;
 import com.yieldlabs.rtb.broker.service.BiddingProcessor;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import java.io.IOException;
+import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
@@ -34,7 +32,10 @@ public class BidRequestController {
     bidRequest.setId(id);
     bidRequest.setAttributes(queryParams);
 
-    String response = biddingProcessor.fetchResponse(bidRequest);
-    return Response.ok(response).build();
+    Optional<String> response = biddingProcessor.fetchResponse(bidRequest);
+    if(response.isPresent()) {
+      return Response.ok(response.get()).build();
+    }
+    throw new WebApplicationException("Unable to fetch any bids!");
   }
 }

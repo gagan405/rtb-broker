@@ -40,6 +40,8 @@ subprojects {
             exclude group: 'com.google.inject', module: 'guice_servlet'
             exclude group: 'javassist', module: 'javassist'
         }
+
+        testCompile 'org.junit:junit:4.11'
     }
 
 }

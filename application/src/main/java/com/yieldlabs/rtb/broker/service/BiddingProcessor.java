@@ -5,6 +5,7 @@ import com.yieldlabs.rtb.broker.dto.BidRequest;
 import com.yieldlabs.rtb.broker.dto.BidResponse;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -22,7 +23,7 @@ public class BiddingProcessor {
     this.bidResponseProcessor = bidResponseProcessor;
   }
 
-  public String fetchResponse(BidRequest request) throws InterruptedException, ExecutionException {
+  public Optional<String> fetchResponse(BidRequest request) throws InterruptedException, ExecutionException {
     return bidResponseProcessor.getAuctionResult(bidRequester.getBids(request));
   }
 }
